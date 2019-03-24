@@ -26,7 +26,7 @@ function vectorSize (someVector) {
   }, 0)
 }
 
-// By default, assume is a verus transaction
+// By default, assume is a safecoin transaction
 function Transaction (network) {
   if (!network) network = networks.default
   this.version = 1
@@ -803,7 +803,7 @@ Transaction.prototype.hashForZcashSignature = function (inIndex, prevOutScript, 
   typeforce(types.tuple(types.UInt32, types.Buffer, types.Satoshi, types.UInt32), arguments)
   debug('Typeforce completed')
   if (!coins.isZcash(this.network)) {
-    throw new Error('hashForZcashSignature can only be called when using Zcash or Verus network')
+    throw new Error('hashForZcashSignature can only be called when using Zcash or Safecoin network')
   }
   if (this.joinsplits.length > 0) {
     throw new Error('Hash signature for Zcash protected transactions is not supported')
@@ -884,14 +884,14 @@ Transaction.prototype.hashForZcashSignature = function (inIndex, prevOutScript, 
 }
 
 /**
- * Hash transaction for signing a transparent transaction in Verus Coin. Protected transactions are not yet supported.
+ * Hash transaction for signing a transparent transaction in Safecoin Coin. Protected transactions are not yet supported.
  * @param inIndex
  * @param prevOutScript
  * @param value
  * @param hashType
  * @returns double SHA-256 or 256-bit BLAKE2b hash
  */
-Transaction.prototype.hashForVerusSignature = function (inIndex, prevOutScript, value, hashType) {
+Transaction.prototype.hashForSafecoinSignature = function (inIndex, prevOutScript, value, hashType) {
   return this.hashForZcashSignature(inIndex, prevOutScript, value, hashType);
 }
 

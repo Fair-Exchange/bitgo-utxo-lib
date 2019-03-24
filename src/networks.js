@@ -109,8 +109,8 @@ module.exports = {
     coin: coins.ZEC,
     isZcash: true
   },
-  vrsc: {
-    messagePrefix: '\x18Verus Coin Signed Message:\n',
+  safecoin: {
+    messagePrefix: '\x18Safecoin Coin Signed Message:\n',
     bech32: 'bc',
     bip32: {
       public: 0x0488b21e,
@@ -125,7 +125,7 @@ module.exports = {
       3: 0x5ba81b19,
       4: 0x76b809bb
     },
-    coin: coins.VRSC,
+    coin: coins.SAFECOIN,
     isZcash: true
   },
   btg: {

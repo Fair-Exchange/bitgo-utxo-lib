@@ -488,7 +488,7 @@ function buildInput (input, allowIncomplete) {
   }
 }
 
-// By default, assume is a Verus Coin style transaction
+// By default, assume is a Safecoin Coin style transaction
 function TransactionBuilder (network, maximumFeeRate) {
   this.prevTxMap = {}
   this.network = network || networks.default
@@ -867,9 +867,9 @@ TransactionBuilder.prototype.sign = function (vin, keyPair, redeemScript, hashTy
   } else if (coins.isZcash(this.network)) {
     signatureHash = this.tx.hashForZcashSignature(vin, input.signScript, witnessValue, hashType)
     debug('Calculated ZEC sighash (%s)', signatureHash.toString('hex'))
-  } else if (coins.isVerus(this.network)) {
-    signatureHash = this.tx.hashForVerusSignature(vin, input.signScript, witnessValue, hashType)
-    debug('Calculated VRSC sighash (%s)', signatureHash.toString('hex'))
+  } else if (coins.isSafecoin(this.network)) {
+    signatureHash = this.tx.hashForSafecoinSignature(vin, input.signScript, witnessValue, hashType)
+    debug('Calculated SAFECOIN sighash (%s)', signatureHash.toString('hex'))
   } else {
     if (input.witness) {
       signatureHash = this.tx.hashForWitnessV0(vin, input.signScript, witnessValue, hashType)

@@ -70,7 +70,7 @@ ECPair.fromWIF = function (string, network) {
 
     if (!network) throw new Error('Unknown network version')
 
-  // otherwise, assume a network object (or default to vrsc style network)
+  // otherwise, assume a network object (or default to safecoin style network)
   } else {
     network = network || NETWORKS.default
     debug('Network WIF: ' + network.wif + ', Version: ' + version)
