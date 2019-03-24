@@ -29,7 +29,7 @@ function vectorSize (someVector) {
 // By default, assume is a safecoin transaction
 function Transaction (network) {
   if (!network) network = networks.default
-  this.version = 1
+  this.version = 4
   this.locktime = 0
   this.ins = []
   this.outs = []
@@ -71,7 +71,7 @@ var BLANK_OUTPUT = {
   valueBuffer: VALUE_UINT64_MAX
 }
 
-Transaction.ZCASH_OVERWINTER_VERSION = 3
+Transaction.ZCASH_OVERWINTER_VERSION = 4
 Transaction.ZCASH_SAPLING_VERSION = 4
 Transaction.ZCASH_JOINSPLITS_SUPPORT_VERSION = 2
 Transaction.ZCASH_NUM_JOINSPLITS_INPUTS = 2
@@ -258,11 +258,11 @@ Transaction.fromBuffer = function (buffer, network, __noStrict) {
 
   if (coins.isZcash(network)) {
     // Split the header into fOverwintered and nVersion
-    tx.overwintered = tx.version >>> 31  // Must be 1 for version 3 and up
-    tx.version = tx.version & 0x07FFFFFFF  // 3 for overwinter
-    if (!network.consensusBranchId.hasOwnProperty(tx.version)) {
-      throw new Error('Unsupported Zcash transaction')
-    }
+    tx.overwintered = 1 //tx.version >>> 31  // Must be 1 for version 3 and up
+    tx.version = 4 // tx.version & 0x07FFFFFFF  // 3 for overwinter
+   // if (!network.consensusBranchId.hasOwnProperty(tx.version)) {
+   //   throw new Error('Unsupported Zcash transaction')
+   // }
   }
 
   var marker = buffer.readUInt8(offset)
