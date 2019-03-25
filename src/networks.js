@@ -4,20 +4,22 @@ var coins = require('./coins')
 
 module.exports = {
   default: {
-    messagePrefix: '\x18Default Signed Message:\n',
-    bech32: 'bc',
-    bip32: {
-      public: 0x0488b21e,
-      private: 0x0488ade4
-    },
-    pubKeyHash: 0x3c,
-    scriptHash: 0x55,
-    wif: 0xBC,
-    consensusBranchId: {
-      1: 0x00,
-      2: 0x00,
-      3: 0x5ba81b19,
-      4: 0x76b809bb
+	    messagePrefix: '\x18Safecoin Signed Message:\n',
+	    bech32: 'bc',
+	    bip32: {
+	      public: 0x0488b21f,
+	      private: 0x0488ade5
+	    },
+	    pubKeyHash: 0x3d,
+	    scriptHash: 0x56,
+	    wif: 0xbd,
+	    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+	    // dummy value.
+	    consensusBranchId: {
+	      1: 0x00,
+	      2: 0x00,
+	      3: 0x5ba81b19,
+	      4: 0x76b809bb
     },
     coin: coins.DEFAULT,
     isZcash: true
@@ -110,6 +112,26 @@ module.exports = {
     isZcash: true
   },
   safecoin: {
+	    messagePrefix: '\x18Safecoin Signed Message:\n',
+	    bech32: 'bc',
+	    bip32: {
+	      public: 0x0488b21f,
+	      private: 0x0488ade5
+	    },
+	    pubKeyHash: 0x3d,
+	    scriptHash: 0x56,
+	    wif: 0xbd,
+	    // This parameter was introduced in version 3 to allow soft forks, for version 1 and 2 transactions we add a
+	    // dummy value.
+	    consensusBranchId: {
+	      1: 0x00,
+	      2: 0x00,
+	      3: 0x5ba81b19,
+	      4: 0x76b809bb
+	    },
+	    coin: coins.ZEC,
+  },
+  safe: {
 	    messagePrefix: '\x18Safecoin Signed Message:\n',
 	    bech32: 'bc',
 	    bip32: {
