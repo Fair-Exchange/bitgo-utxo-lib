@@ -40,8 +40,8 @@ function Transaction (network) {
     this.joinsplitPubkey = []
     this.joinsplitSig = []
     // ZCash version >= 3
-    this.overwintered = 0  // 1 if the transaction is post overwinter upgrade, 0 otherwise
-    this.versionGroupId = 0  // 0x03C48270 (63210096) for overwinter and 0x892F2085 (2301567109) for sapling
+    this.overwintered = 1  // 1 if the transaction is post overwinter upgrade, 0 otherwise
+    this.versionGroupId = '0x892F2085'  // 0x03C48270 (63210096) for overwinter and 0x892F2085 (2301567109) for sapling
     this.expiryHeight = 0  // Block height after which this transactions will expire, or 0 to disable expiry
     // ZCash version >= 4
     this.valueBalance = 0
