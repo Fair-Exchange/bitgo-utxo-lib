@@ -872,8 +872,10 @@ Transaction.prototype.hashForZcashSignature = function (inIndex, prevOutScript, 
     var personalization = Buffer.alloc(16)
     var prefix = 'ZcashSigHash'
     personalization.write(prefix)
-  personalization.writeUInt32LE("0x76b809bb", prefix.length)
-    return this.getBlake2bHash(bufferWriter.getBuffer(), personalization)
+    //  personalization.writeUInt32LE("0x76b809bb", prefix.length)
+         personalization.writeUInt32LE(this.network.consensusBranchId[this.version], prefix.length)
+      return this.getBlake2bHash(bufferWriter.getBuffer(), personalization)
+      
   }
   else
   {

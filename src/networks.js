@@ -21,7 +21,7 @@ module.exports = {
 	      3: 0x5ba81b19,
 	      4: 0x76b809bb
     },
-    coin: coins.DEFAULT,
+    coin: coins.SAFECOIN,
     isZcash: true
   },
   dash: {
@@ -129,7 +129,8 @@ module.exports = {
 	      3: 0x5ba81b19,
 	      4: 0x76b809bb
 	    },
-	    coin: coins.ZEC,
+      coin: coins.SAFECOIN,
+      isZcash: true
   },
   safe: {
 	    messagePrefix: '\x18Safecoin Signed Message:\n',
@@ -149,7 +150,8 @@ module.exports = {
 	      3: 0x5ba81b19,
 	      4: 0x76b809bb
 	    },
-	    coin: coins.ZEC,
+      coin: coins.SAFECOIN,
+      isZcash: true
 	  },
   btg: {
     messagePrefix: '\x18Bitcoin Gold Signed Message:\n',
