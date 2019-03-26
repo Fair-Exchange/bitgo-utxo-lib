@@ -258,8 +258,8 @@ Transaction.fromBuffer = function (buffer, network, __noStrict) {
 
   if (coins.isZcash(network)) {
     // Split the header into fOverwintered and nVersion
-    tx.overwintered = 1 //tx.version >>> 31  // Must be 1 for version 3 and up
-    tx.version = 4 // tx.version & 0x07FFFFFFF  // 3 for overwinter
+    tx.overwintered = tx.version >>> 31  // Must be 1 for version 3 and up
+    tx.version = tx.version & 0x07FFFFFFF  // 3 for overwinter
    // if (!network.consensusBranchId.hasOwnProperty(tx.version)) {
    //   throw new Error('Unsupported Zcash transaction')
    // }
